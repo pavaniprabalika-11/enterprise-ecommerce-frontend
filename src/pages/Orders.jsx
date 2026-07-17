@@ -45,7 +45,7 @@ function Orders() {
   const fetchOrders = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5234/api/Order/user/${getUserEmail()}`
+        `https://enterprise-ecommerce-backend.onrender.com/api/Order/user/${getUserEmail()}`
       );
 
       setOrders(res.data);
@@ -57,7 +57,7 @@ function Orders() {
   const cancelOrder = async (id) => {
   try {
     await axios.put(
-      `http://localhost:5234/api/Order/cancel/${id}`
+      `https://enterprise-ecommerce-backend.onrender.com/api/Order/cancel/${id}`
     );
 
     alert("Order Cancelled ❌");
