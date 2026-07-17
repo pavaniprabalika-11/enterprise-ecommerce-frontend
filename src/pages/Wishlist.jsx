@@ -15,7 +15,7 @@ function Wishlist() {
   const fetchWishlist = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5234/api/Wishlist/${getUserEmail()}`
+        `https://enterprise-ecommerce-backend.onrender.com/api/Wishlist/${getUserEmail()}`
       );
 
       const wishlistItems = res.data;
@@ -23,7 +23,7 @@ function Wishlist() {
       const itemsWithProducts = await Promise.all(
         wishlistItems.map(async (item) => {
           const productRes = await axios.get(
-            `http://localhost:5234/api/Product/${item.productId}`
+            `https://enterprise-ecommerce-backend.onrender.com/api/Product/${item.productId}`
           );
 
           return {
@@ -42,7 +42,7 @@ function Wishlist() {
   const removeWishlist = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5234/api/Wishlist/${id}`
+        `https://enterprise-ecommerce-backend.onrender.com/api/Wishlist/${id}`
       );
 
       fetchWishlist();
@@ -56,7 +56,7 @@ function Wishlist() {
   const addToCart = async (productId) => {
     try {
       await axios.post(
-        "http://localhost:5234/api/Cart/add",
+        "https://enterprise-ecommerce-backend.onrender.com/api/Cart/add",
         {
           userEmail: getUserEmail(),
           productId,
