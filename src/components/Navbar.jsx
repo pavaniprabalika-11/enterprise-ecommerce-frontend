@@ -37,7 +37,7 @@ const handleSearch = (e) => {
   const fetchCartCount = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5234/api/Cart/${getUserEmail()}`
+        `https://enterprise-ecommerce-backend.onrender.com/api/Cart/${getUserEmail()}`
       );
       setCartCount(res.data.length);
     } catch (err) {
