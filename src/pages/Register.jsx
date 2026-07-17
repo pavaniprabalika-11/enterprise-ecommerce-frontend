@@ -19,7 +19,7 @@ function Register() {
     }
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5234/api/Auth/register", form);
+      const res = await axios.post("https://enterprise-ecommerce-backend.onrender.com/api/Auth/register", form);
       alert("Account Created Successfully 🌸");
       navigate("/login");
     } catch {
