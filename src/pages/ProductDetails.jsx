@@ -36,7 +36,7 @@ export default function ProductDetails() {
 
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(`http://localhost:5234/api/Product/${id}`);
+      const res = await axios.get(`https://enterprise-ecommerce-backend.onrender.com/api/Product/${id}`);
       setProduct(res.data);
     } catch (err) { console.log(err); }
   };
@@ -44,7 +44,7 @@ export default function ProductDetails() {
   const addToCart = async () => {
     setCartLoading(true);
     try {
-      await axios.post("http://localhost:5234/api/Cart/add", {
+      await axios.post("https://enterprise-ecommerce-backend.onrender.com/api/Cart/add", {
         userEmail: getUserEmail(), productId: product.id, quantity,
       });
       setAdded(true);
@@ -56,7 +56,7 @@ export default function ProductDetails() {
   const addToWishlist = async () => {
     setWishLoading(true);
     try {
-      await axios.post("http://localhost:5234/api/Wishlist/add", {
+      await axios.post("https://enterprise-ecommerce-backend.onrender.com/api/Wishlist/add", {
         userEmail: getUserEmail(), productId: product.id,
       });
       alert("Added to Wishlist ❤️");
