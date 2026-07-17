@@ -20,7 +20,7 @@ function Cart() {
       const email = getUserEmail();
 
       const cartRes = await axios.get(
-        `http://localhost:5234/api/Cart/${email}`
+        `https://enterprise-ecommerce-backend.onrender.com/api/Cart/${email}`
       );
 
       const cartItems = cartRes.data;
@@ -30,7 +30,7 @@ function Cart() {
       const itemsWithProducts = await Promise.all(
         cartItems.map(async (item) => {
           const productRes = await axios.get(
-            `http://localhost:5234/api/Product/${item.productId}`
+            `https://enterprise-ecommerce-backend.onrender.com/api/Product/${item.productId}`
           );
 
           grandTotal +=
@@ -53,7 +53,7 @@ function Cart() {
   const removeFromCart = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5234/api/Cart/${id}`
+        `https://enterprise-ecommerce-backend.onrender.com/api/Cart/${id}`
       );
 
       await fetchCart();
@@ -68,7 +68,7 @@ function Cart() {
   try {
     // Check whether the user has saved any address
     const addressRes = await axios.get(
-      `http://localhost:5234/api/Address/${getUserEmail()}`
+      `https://enterprise-ecommerce-backend.onrender.com/api/Address/${getUserEmail()}`
     );
 
     if (addressRes.data.length === 0) {
@@ -94,7 +94,7 @@ function Cart() {
   const moveToWishlist = async (item) => {
   try {
     await axios.post(
-      "http://localhost:5234/api/Wishlist/add",
+      "https://enterprise-ecommerce-backend.onrender.com/api/Wishlist/add",
       {
         userEmail: getUserEmail(),
         productId: item.productId
