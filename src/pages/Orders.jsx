@@ -73,7 +73,7 @@ function Orders() {
   try {
     for (const item of order.items) {
       await axios.post(
-        "http://localhost:5234/api/Cart/add",
+        "https://enterprise-ecommerce-backend.onrender.com/api/Cart/add",
         {
           userEmail: getUserEmail(),
           productId: item.productId,
