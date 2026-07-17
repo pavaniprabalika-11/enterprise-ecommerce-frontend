@@ -15,7 +15,7 @@ function Login() {
     }
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5234/api/Auth/login", form);
+      const res = await axios.post("https://enterprise-ecommerce-backend.onrender.com/api/Auth/login", form);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("email", form.email);
       alert("Welcome back to Ellora 🌸");
