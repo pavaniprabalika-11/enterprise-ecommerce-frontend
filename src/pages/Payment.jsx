@@ -16,7 +16,7 @@ function Payment() {
 
     // Place Order
     await axios.post(
-      "http://localhost:5234/api/Order/place",
+      "https://enterprise-ecommerce-backend.onrender.com/api/Order/place",
       {
         userEmail: email,
         totalAmount: totalAmount,
@@ -26,7 +26,7 @@ function Payment() {
 
     // Clear Cart
     await axios.delete(
-      `http://localhost:5234/api/Cart/user/${email}`
+      `https://enterprise-ecommerce-backend.onrender.com/api/Cart/user/${email}`
     );
 
     alert(`Payment Successful using ${paymentMethod} ✅`);
