@@ -67,7 +67,7 @@ export default function Products() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5234/api/Product");
+      const res = await axios.get("https://enterprise-ecommerce-backend.onrender.com/api/Product");
       setProducts(res.data);
     } catch (err) {
       console.log(err);
@@ -79,7 +79,7 @@ export default function Products() {
   const addToCart = async (e, productId) => {
     e.stopPropagation();
     try {
-      await axios.post("http://localhost:5234/api/Cart/add", {
+      await axios.post("https://enterprise-ecommerce-backend.onrender.com/api/Cart/add", {
         userEmail: getUserEmail(), productId, quantity: 1,
       });
       alert("Added to Cart ✅");
@@ -89,7 +89,7 @@ export default function Products() {
   const addToWishlist = async (e, productId) => {
     e.stopPropagation();
     try {
-      await axios.post("http://localhost:5234/api/Wishlist/add", {
+      await axios.post("https://enterprise-ecommerce-backend.onrender.com/api/Wishlist/add", {
         userEmail: getUserEmail(), productId,
       });
       alert("Added to Wishlist ❤️");
